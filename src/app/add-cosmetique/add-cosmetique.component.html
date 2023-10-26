@@ -1,0 +1,47 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Produit Cosmétique :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-4 col-md-4 col-lg-4">
+            <label>ID Produit Cosmétique</label>
+            <input type="text" [(ngModel)]="newCosmetique.idCosmetique" name="idCosmetique" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Produit Cosmétique</label>
+            <input type="text" [(ngModel)]="newCosmetique.nomCosmetique" name="nomCosmetique" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Prix Produit Cosmétique</label>
+            <input type="number" [(ngModel)]="newCosmetique.prixCosmetique" name="prixCosmetique" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [(ngModel)]="newCosmetique.dateCreation" name="dateCreation" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Rayon</label>
+            <select class="form-control form-control-lg" id="idRay" name="idRay" [(ngModel)]="newIdRay">
+                <option *ngFor="let ray of rayons" [value]="ray.idRay">
+                    {{ray.nomRay}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)"
+            name="logo" class="form-control">
+            </div>
+
+
+            <div class="col-sm-16 col-md-16 col-lg-16">
+                <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+                style="width: 500px; height: 300px" />
+                </div>
+        <div class="mt-2">
+            <button type="submit" (click)="addCosmetique()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+
+</div>

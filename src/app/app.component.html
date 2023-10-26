@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Produits Cosmétiques</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Produits Cosmétiques</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cosmetiques" *ngIf="authService.isloggedIn">Accueil</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" *ngIf="authService.isloggedIn">
+                    Produits Cosmétiques
+                </a>
+                <div class="dropdown-menu">
+                    <a *ngIf="authService.isAdmin()"  class="dropdown-item" routerLink="/add-cosmetique">Ajouter</a>
+                    <a class="dropdown-item" href="#">Lister</a>
+                    <a class="dropdown-item"  routerLink="/rechercheParRayon" >Recherche Par Rayon</a>
+                    <a class="dropdown-item"  routerLink="/rechercheParNom" >Recherche Par Nom</a>
+                    <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/listeRayons" >Gestion des rayons</a>
+                    <a class="dropdown-item" routerLink="/listeOfusers" *ngIf="authService.isAdmin()">Gestion des utilisateurs</a>
+
+
+
+
+                </div>
+
+            </li>
+        </ul>
+        <ul  style="margin-right: 40px;" class="navbar-nav ml-auto">
+            <li> <a class="nav-link">{{authService.loggedUser}}</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Connexion
+                </a>
+                <div class="dropdown-menu" >
+                    <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">Se connecter</a>
+                    <a *ngIf="authService.isloggedIn"  class="dropdown-item" (click) = "onLogout()">Se déconnecter</a>
+                    <a class="dropdown-item" href="#">Mon Profile</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
+<router-outlet></router-outlet>

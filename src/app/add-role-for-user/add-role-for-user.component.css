@@ -1,0 +1,49 @@
+/* Style du conteneur du formulaire */
+.container {
+    margin-top: 20px;
+  }
+  
+  /* Style des étiquettes (labels) */
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  
+  
+  /* Style de la liste de rôles */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Style des éléments de liste (rôles) */
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  /* Style du select (sélecteur de rôles) */
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style du bouton "Affecter le rôle" */
+  button.btn-info {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  
+  
+  

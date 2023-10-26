@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+      <div class="row justify-content-md-center">
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+          <div class="form-group">
+            <label for="username">Nom Utilisateur :</label>
+            <input type="text" id="username" name="username" class="form-control" [(ngModel)]="User.username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="User.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+            <div *ngIf="registerForm.submitted && registerForm.controls['email'].hasError('pattern')">
+              <div class="text-danger">Adresse email non valide.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" [(ngModel)]="User.password" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="passwordConf">Mot de passe de confirmation :</label>
+            <input type="password" id="passwordConf" name="passwordConf" [(ngModel)]="passConf" class="form-control" required>
+          </div>
+          <div class="row justify-content-md-center">
+            <button type="submit" class="btn btn-success">S'inscrire</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

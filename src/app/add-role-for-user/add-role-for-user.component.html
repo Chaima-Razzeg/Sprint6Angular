@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <form>
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" [(ngModel)]="User.username" name="id" class="form-control w-25" id="username" readonly>
+    </div>
+      
+    <div class="form-group">
+      <label for="currentRole">Les rôles actuels</label>
+      <ul>
+        <li *ngFor="let r of User.roles">
+          <p>{{ r.role }}</p>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeRoleFromUsers(r.role_id)">
+            <span class="glyphicon glyphicon-trash"></span> Enlever le rôle
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <label for="roleSelect">Sélectionner un nouveau rôle :</label>
+      <select [(ngModel)]="idOfRole" name="roleSelectt" class="form-control">
+        <ng-container *ngFor="let rr of roles">
+          <option *ngIf="!isRoleInUser(rr.role_id)" [ngValue]="rr">{{ rr.role }}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="d-flex justify-content-between">
+      <!-- Bouton "Affecter le rôle" avec la classe btn-lg -->
+      <button class="btn btn-success" (click)="addRoleToUser()">Affecter le rôle</button>
+
+      <!-- Bouton "Valider" avec la classe btn-lg -->
+      <button class="btn btn-success" (click)="returnToUserList()" >Valider</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<form>
+    <div [hidden]="ajout">
+        <label>ID Rayon</label>
+        <input type="text" [(ngModel)]="rayon.idRay" name="idRayon" class="form-control w-25">
+        </div>
+    <div>
+    <label>Nom Rayon</label>
+    <input type="text" [(ngModel)]="rayon.nomRay" name="nomRayon" class="form-control"
+    placeholder="Entrez un nom de rayon...">
+    </div>
+    <div class="mt-2">
+        <!-- <button type="submit" [disabled]="!rayon.nomRay" class="btn btn-success"
+        (click)="saveRayon()" >{{ajout ? 'Ajouter' :  'Modifier'}}
+        </button> -->
+        <button type="submit" [disabled]="!rayon.nomRay" class="btn btn-success" *ngIf="ajout"
+    (click)="saveRayon()">Ajouter</button>
+    <button type="submit" [disabled]="!rayon.nomRay" class="btn btn-success" *ngIf="ajout==false"
+    (click)="saveRayon()">Modifier</button>
+    </div>
+    </form>
